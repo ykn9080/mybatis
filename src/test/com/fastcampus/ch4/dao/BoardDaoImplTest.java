@@ -12,14 +12,11 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
 public class BoardDaoImplTest {
-    @Autowired BoardDao boardDao;
-
+    @Autowired
+    BoardDao boardDao;
     @Test
-    public void select() throws Exception{
-        assertTrue(boardDao != null);
-        System.out.println("boardDao = " + boardDao);
+    public void select() throws Exception {
         BoardDto dto=boardDao.select(1);
-        System.out.println("dto = " + dto);
-        assertTrue(dto.getBno().equals(1));
+        assertTrue(dto.getBno()==1);
     }
 }
