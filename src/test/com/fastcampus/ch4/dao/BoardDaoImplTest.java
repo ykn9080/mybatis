@@ -17,6 +17,7 @@ public class BoardDaoImplTest {
     @Test
     public void select() throws Exception {
         BoardDto dto=boardDao.select(1);
+        System.out.println("getBno: "+dto.getBno());
         assertTrue(dto.getBno()==1);
     }
 }
