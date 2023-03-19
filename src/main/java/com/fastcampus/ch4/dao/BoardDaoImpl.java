@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class BoardDaoImpl implements BoardDao {
-    @Autowired SqlSession session;
+    @Autowired  SqlSession session;
 
     String namespace = "com.fastcampus.ch4.dao.BoardMapper.";
     @Override
