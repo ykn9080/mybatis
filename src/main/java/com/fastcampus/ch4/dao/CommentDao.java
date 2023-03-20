@@ -1,16 +1,21 @@
 package com.fastcampus.ch4.dao;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import com.fastcampus.ch4.domain.CommentDto;
 
-@Repository
-public class CommentDao {
-   @Autowired
-   public SqlSession session;
-   String namespace="com.fastcampus.ch4.dao.CommentMapper.";
+import java.util.List;
 
-   public int count(Integer bno) throws Exception{
-      return session.selectOne(namespace+"count",bno);
-   }
+public interface CommentDao {
+    int count(Integer bno) throws Exception;
+
+    int delete(Integer cno, String commenter) throws Exception;
+
+    int deleteAll(Integer bno) throws Exception;
+
+    int insert(CommentDto dto) throws Exception;
+
+    List<CommentDto> selectAll(Integer bno) throws Exception;
+
+    CommentDto select(Integer cno);
+
+    int update(CommentDto dto);
 }

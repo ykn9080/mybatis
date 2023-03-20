@@ -6,4 +6,26 @@
     <select id="count" resultType="int">
         SELECT count(*) FROM comment
     </select>
+    <delete id="delete" parameterType="map">
+        DELETE FROM comment where cno=#{cno} and commenter=#{commenter}
+    </delete>
+    <delete id="deleteAll" parameterType="int">
+        DELETE FROM comment where bno=#{bno}
+    </delete>
+    <insert id="insert" parameterType="map" >
+        INSERT INTO comment (bno, pcno, comment, commenter) VALUES (#{bno}, #{pcno}, #{comment}, #{commenter})
+    </insert>
+    <select id="selectAll" parameterType="int" resultType="CommentDto">
+        SELECT * FROM comment where bno=#{bno} ORDER BY reg_date,cno
+    </select>
+    <select id="select" parameterType="int" resultType="CommentDto">
+        SELECT * FROM comment where cno=#{cno} ORDER BY  reg_date
+    </select>
+
+    <update id="update" parameterType="CommentDto">
+        UPDATE comment
+        SET comment = #{comment}
+          , up_date = now()
+        WHERE cno = #{cno} and commenter = #{commenter}
+    </update>
 </mapper>

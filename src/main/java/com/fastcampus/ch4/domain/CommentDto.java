@@ -1,5 +1,6 @@
 package com.fastcampus.ch4.domain;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -20,7 +21,13 @@ public class CommentDto {
         this.comment = comment;
         this.commenter = commenter;
     }
-
+//    public CommentDto(Integer cno,Integer bno, Integer pcno, String comment, String commenter) {
+//        this.cno=cno;
+//        this.bno = bno;
+//        this.pcno = pcno;
+//        this.comment = comment;
+//        this.commenter = commenter;
+//    }
     public Integer getCno() {
         return cno;
     }
